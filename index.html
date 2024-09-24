@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask Bertie</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Ask Bertie</h1>
-    <input type="text" class="search-box" id="searchInput" placeholder="Ask Bertie anything...">
-    <button class="search-button" onclick="showResults()">What ho, Bertie?</button>
-    <div class="results" id="results"></div>
-
+    <div class="container">
+        <h1>Ask Bertie</h1>
+        <p>Never knows anything important, just random cricket stats and minor nobility gossip.</p>
+        <input type="text" class="search-box" id="searchInput" placeholder="Ask Bertie anything..." oninput="showSuggestions()">
+        <div class="autocomplete-suggestions" id="autocompleteSuggestions"></div>
+        <button class="search-button" onclick="showResults()">Search</button>
+        <div class="results" id="results"></div>
+    </div>
+    <footer>Internet silliness by @tanketom</footer>
     <script src="script.js"></script>
 </body>
 </html>

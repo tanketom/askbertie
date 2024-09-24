@@ -1,3 +1,34 @@
+const suggestions = [
+    "What is the longest cricket match?",
+    "Tell me about Lord Bertie",
+    "Fun cricket facts",
+    "Gossip about minor nobility",
+    "Who is Lady Agatha?",
+    "Cricket ball speed",
+    "Highest individual score in Test match",
+    "Lord Bertie's favorite tea",
+    "Lady Agatha's latest hat",
+    "Sir Reginald's cat"
+];
+
+function showSuggestions() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const suggestionsDiv = document.getElementById('autocompleteSuggestions');
+    suggestionsDiv.innerHTML = '';
+    if (input) {
+        const filteredSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(input));
+        filteredSuggestions.forEach(suggestion => {
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.textContent = suggestion;
+            suggestionDiv.onclick = () => {
+                document.getElementById('searchInput').value = suggestion;
+                suggestionsDiv.innerHTML = '';
+            };
+            suggestionsDiv.appendChild(suggestionDiv);
+        });
+    }
+}
+
 function showResults() {
     const query = document.getElementById('searchInput').value;
     const resultsDiv = document.getElementById('results');
