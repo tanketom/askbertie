@@ -19,10 +19,36 @@ const suggestions = [
     "Lyrics to old songs"
 ];
 
+const randomCricketStats = [
+    "Did you know? The longest cricket match lasted 14 days!",
+    "Fun fact: A cricket ball can reach speeds of over 90 mph.",
+    "Random stat: The highest individual score in a Test match is 400 not out.",
+    "The shortest cricket match lasted just 10 minutes!",
+    "Cricket was first played in the 16th century.",
+    "The first international cricket match was played between the USA and Canada in 1844."
+];
+
+const minorNobilityGossip = [
+    "Rumor has it that Lord Bertie enjoys tea with a splash of lemon.",
+    "Lady Agatha was seen at the latest garden party wearing a stunning hat.",
+    "Did you hear? Sir Reginald's cat won a local pet show!",
+    "Lord Bertie was spotted at the opera last night.",
+    "Lady Agatha is rumored to be writing a novel.",
+    "Sir Reginald's estate is said to have the best rose garden in the county."
+];
+
+const songSuggestions = [
+    "Forty-Seven Ginger-Headed Sailors",
+    "Minnie the Moocher",
+    "Popular songs from the 1930s",
+    "Lyrics to old songs"
+];
+
 function showSuggestions() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const suggestionsDiv = document.getElementById('autocompleteSuggestions');
     suggestionsDiv.innerHTML = '';
+
     if (input) {
         const filteredSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(input));
         filteredSuggestions.forEach(suggestion => {
@@ -42,31 +68,6 @@ function showResults() {
     const resultsDiv = document.getElementById('results');
     let resultsHtml = '<h2>Search Results for "' + query + '"</h2>';
 
-    // Generate random cricket stats and minor nobility gossip
-    const randomCricketStats = [
-        "Did you know? The longest cricket match lasted 14 days!",
-        "Fun fact: A cricket ball can reach speeds of over 90 mph.",
-        "Random stat: The highest individual score in a Test match is 400 not out.",
-        "The shortest cricket match lasted just 10 minutes!",
-        "Cricket was first played in the 16th century.",
-        "The first international cricket match was played between the USA and Canada in 1844."
-    ];
-    const minorNobilityGossip = [
-        "Rumor has it that Lord Bertie enjoys tea with a splash of lemon.",
-        "Lady Agatha was seen at the latest garden party wearing a stunning hat.",
-        "Did you hear? Sir Reginald's cat won a local pet show!",
-        "Lord Bertie was spotted at the opera last night.",
-        "Lady Agatha is rumored to be writing a novel.",
-        "Sir Reginald's estate is said to have the best rose garden in the county."
-    ];
-    const songSuggestions = [
-        "Forty-Seven Ginger-Headed Sailors",
-        "Minnie the Moocher",
-        "Popular songs from the 1930s",
-        "Lyrics to old songs"
-    ];
-
-    // Determine the type of results to show based on the query
     if (query.includes("cricket")) {
         const randomStat = randomCricketStats[Math.floor(Math.random() * randomCricketStats.length)];
         resultsHtml += '<p>' + randomStat + '</p>';
@@ -77,7 +78,6 @@ function showResults() {
         const randomSong = songSuggestions[Math.floor(Math.random() * songSuggestions.length)];
         resultsHtml += '<p>' + randomSong + '</p>';
     } else {
-        // Default to showing a mix of cricket stats and gossip
         const randomStat = randomCricketStats[Math.floor(Math.random() * randomCricketStats.length)];
         const randomGossip = minorNobilityGossip[Math.floor(Math.random() * minorNobilityGossip.length)];
         resultsHtml += '<p>' + randomStat + '</p>';
@@ -86,3 +86,5 @@ function showResults() {
 
     resultsDiv.innerHTML = resultsHtml;
 }
+
+document.getElementById('searchInput').addEventListener('input', showSuggestions);

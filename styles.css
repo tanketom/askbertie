@@ -12,6 +12,12 @@ body {
     align-items: center;
 }
 
+img {
+    display: block;
+    max-width: none; /* Ensure the image is not resized */
+    height: auto; /* Maintain the aspect ratio */
+}
+
 .search-container {
     position: relative;
     width: 80%;
