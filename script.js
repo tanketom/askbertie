@@ -12,7 +12,11 @@ const suggestions = [
     "What is the speed of a cricket ball?",
     "What is the shortest cricket match?",
     "What are the rules of cricket?",
-    "What is the history of cricket?"
+    "What is the history of cricket?",
+    "Forty-Seven Ginger-Headed Sailors",
+    "Minnie the Moocher",
+    "Popular songs from the 1930s",
+    "Lyrics to old songs"
 ];
 
 function showSuggestions() {
@@ -34,7 +38,7 @@ function showSuggestions() {
 }
 
 function showResults() {
-    const query = document.getElementById('searchInput').value;
+    const query = document.getElementById('searchInput').value.toLowerCase();
     const resultsDiv = document.getElementById('results');
     let resultsHtml = '<h2>Search Results for "' + query + '"</h2>';
 
@@ -55,13 +59,30 @@ function showResults() {
         "Lady Agatha is rumored to be writing a novel.",
         "Sir Reginald's estate is said to have the best rose garden in the county."
     ];
+    const songSuggestions = [
+        "Forty-Seven Ginger-Headed Sailors",
+        "Minnie the Moocher",
+        "Popular songs from the 1930s",
+        "Lyrics to old songs"
+    ];
 
-    // Randomly select a cricket stat and a piece of gossip
-    const randomStat = randomCricketStats[Math.floor(Math.random() * randomCricketStats.length)];
-    const randomGossip = minorNobilityGossip[Math.floor(Math.random() * minorNobilityGossip.length)];
-
-    resultsHtml += '<p>' + randomStat + '</p>';
-    resultsHtml += '<p>' + randomGossip + '</p>';
+    // Determine the type of results to show based on the query
+    if (query.includes("cricket")) {
+        const randomStat = randomCricketStats[Math.floor(Math.random() * randomCricketStats.length)];
+        resultsHtml += '<p>' + randomStat + '</p>';
+    } else if (query.includes("gossip") || query.includes("lord") || query.includes("lady") || query.includes("sir")) {
+        const randomGossip = minorNobilityGossip[Math.floor(Math.random() * minorNobilityGossip.length)];
+        resultsHtml += '<p>' + randomGossip + '</p>';
+    } else if (query.includes("song") || query.includes("lyric")) {
+        const randomSong = songSuggestions[Math.floor(Math.random() * songSuggestions.length)];
+        resultsHtml += '<p>' + randomSong + '</p>';
+    } else {
+        // Default to showing a mix of cricket stats and gossip
+        const randomStat = randomCricketStats[Math.floor(Math.random() * randomCricketStats.length)];
+        const randomGossip = minorNobilityGossip[Math.floor(Math.random() * minorNobilityGossip.length)];
+        resultsHtml += '<p>' + randomStat + '</p>';
+        resultsHtml += '<p>' + randomGossip + '</p>';
+    }
 
     resultsDiv.innerHTML = resultsHtml;
 }

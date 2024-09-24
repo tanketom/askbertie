@@ -12,9 +12,14 @@ body {
     align-items: center;
 }
 
-.search-box {
+.search-container {
+    position: relative;
     width: 80%;
     max-width: 600px;
+}
+
+.search-box {
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #dfe1e5;
@@ -23,9 +28,7 @@ body {
 }
 
 .autocomplete-suggestions {
-    width: 80%;
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
     text-align: left;
     border: 1px solid #dfe1e5;
     border-top: none;
