@@ -1,14 +1,18 @@
 const suggestions = [
     "What is the longest cricket match?",
+    "What are some fun cricket facts?",
+    "What is the highest individual score in Test match?",
     "Tell me about Lord Bertie",
-    "Fun cricket facts",
     "Gossip about minor nobility",
     "Who is Lady Agatha?",
     "Cricket ball speed",
-    "Highest individual score in Test match",
     "Lord Bertie's favorite tea",
     "Lady Agatha's latest hat",
-    "Sir Reginald's cat"
+    "Sir Reginald's cat",
+    "What is the speed of a cricket ball?",
+    "What is the shortest cricket match?",
+    "What are the rules of cricket?",
+    "What is the history of cricket?"
 ];
 
 function showSuggestions() {
@@ -38,12 +42,18 @@ function showResults() {
     const randomCricketStats = [
         "Did you know? The longest cricket match lasted 14 days!",
         "Fun fact: A cricket ball can reach speeds of over 90 mph.",
-        "Random stat: The highest individual score in a Test match is 400 not out."
+        "Random stat: The highest individual score in a Test match is 400 not out.",
+        "The shortest cricket match lasted just 10 minutes!",
+        "Cricket was first played in the 16th century.",
+        "The first international cricket match was played between the USA and Canada in 1844."
     ];
     const minorNobilityGossip = [
         "Rumor has it that Lord Bertie enjoys tea with a splash of lemon.",
         "Lady Agatha was seen at the latest garden party wearing a stunning hat.",
-        "Did you hear? Sir Reginald's cat won a local pet show!"
+        "Did you hear? Sir Reginald's cat won a local pet show!",
+        "Lord Bertie was spotted at the opera last night.",
+        "Lady Agatha is rumored to be writing a novel.",
+        "Sir Reginald's estate is said to have the best rose garden in the county."
     ];
 
     // Randomly select a cricket stat and a piece of gossip
